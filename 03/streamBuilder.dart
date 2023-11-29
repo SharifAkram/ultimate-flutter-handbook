@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 class _MainAppState extends State<MainApp> {
-  StreamController<int> _streamController = StreamController<int>(setState(() {
+  StreamController<int> _streamController = StreamController<int>();
   @override
   void dispose() {
     _streamController.close();
@@ -19,10 +19,10 @@ class _MainAppState extends State<MainApp> {
               if (snapshot.hasError) {
                 Return const Text('Error: ${snapshot.error}');
               }
-              if (!snapshot.hasData) {
+              if (!snapshot.hasData)
                 return Text('No data yet.');
               }
-              return Text ('Stream value: ${snapshot.data}');
+              return Text('Stream value: ${snapshot.data}');
             },
           ),
         ),
